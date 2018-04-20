@@ -1,0 +1,6 @@
+/packages/
+/bin/
+/obj/
+/.vs/GraphQL_Demo/v14/*.suo
+/Web/bin
+/Web/obj/Debug

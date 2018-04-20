@@ -1,0 +1,2474 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LG.Utility</name>
+    </assembly>
+    <members>
+        <member name="M:LG.Utility.AESEncrypt.Aes(System.String,System.String,System.String,System.Nullable{LG.Utility.AesDoType})">
+            <summary>
+            AES加/解密
+            </summary>
+            <param name="data"></param>
+            <param name="secretKey">秘钥(32位)</param>
+            <param name="vectorStr">向量(16位)</param>
+            <param name="doType">操作类型(1=加密，2=解密)</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.AESEncrypt.AesEncrypt(System.String,System.String,System.String)">
+            <summary>
+            AES加密
+            </summary>
+            <param name="data">明文或密文</param>
+            <param name="secretKey">秘钥(32位)</param>
+            <param name="vectorStr">向量(16位)</param>
+        </member>
+        <member name="M:LG.Utility.AESEncrypt.AesDecrypt(System.String,System.String,System.String)">
+            <summary>
+            AES解密
+            </summary>
+            <param name="data">明文或密文</param>
+            <param name="secretKey">秘钥(32位)</param>
+            <param name="vectorStr">向量(16位)</param>
+        </member>
+        <member name="F:LG.Utility.AesDoType.Encrypt">
+            <summary>
+            加密
+            </summary>
+        </member>
+        <member name="F:LG.Utility.AesDoType.Decrypt">
+            <summary>
+            解密
+            </summary>
+        </member>
+        <member name="M:LG.Utility.Base64Helper.EncodeBase64(System.Text.Encoding,System.String)">
+            <summary>
+            Base64加密
+            </summary>
+            <param name="encode">加密采用的编码方式</param>
+            <param name="source">待加密的明文</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.Base64Helper.EncodeBase64(System.String)">
+            <summary>
+            Base64加密，采用utf8编码方式加密
+            </summary>
+            <param name="source">待加密的明文</param>
+            <returns>加密后的字符串</returns>
+        </member>
+        <member name="M:LG.Utility.Base64Helper.DecodeBase64(System.Text.Encoding,System.String)">
+            <summary>
+            Base64解密
+            </summary>
+            <param name="encode">解密采用的编码方式，注意和加密时采用的方式一致</param>
+            <param name="result">待解密的密文</param>
+            <returns>解密后的字符串</returns>
+        </member>
+        <member name="M:LG.Utility.Base64Helper.DecodeBase64(System.String)">
+            <summary>
+            Base64解密，采用utf8编码方式解密
+            </summary>
+            <param name="result">待解密的密文</param>
+            <returns>解密后的字符串</returns>
+        </member>
+        <member name="F:LG.Utility.CaCheSuperHelper._maxSeconds">
+            <summary>
+            3600 * 24
+            </summary>
+        </member>
+        <member name="M:LG.Utility.CaCheSuperHelper.Get(System.String)">
+            <summary>
+            获取指定的缓存
+            </summary>
+            <param name="key">Cache的名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.CaCheSuperHelper.Get``1(System.String,System.Func{``0},System.Double)">
+            <summary>
+            返回指定的缓存,如果不存在就用函数返回的值,自动加入缓存.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="fun"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.CaCheSuperHelper.Remove(System.String)">
+            <summary>
+            删除指定的缓存
+            </summary>
+            <param name="key">Cache的名称</param>
+        </member>
+        <member name="M:LG.Utility.CaCheSuperHelper.Set(System.String,System.Object,System.Double)">
+            <summary>
+            设置Cache的值,过期时间:到时间绝对过期. 时间秒.
+            </summary>
+            <param name="key">Cache的名称</param>
+            <param name="value">Cache的值</param>
+            <param name="seconds">过期时间,相对当前时间: 秒. 默认:1800</param>        
+        </member>
+        <member name="M:LG.Utility.CreateVideoHelper.CreateSwf(System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            生成flash
+            </summary>
+            <param name="imgFilePaths"></param>
+            <param name="saveSwfFilePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.DateTimeExtend.GetTimestamp(System.DateTime)">
+            <summary>
+            计算时间戳
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.DateTimeExtend.ParseDateByTimestamp(System.Int64)">
+            <summary>
+            根据时间戳(长整型)得到时间对象
+            </summary>
+            <param name="tick"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.DateTimeExtend.GetWeekCN(System.DayOfWeek,System.String)">
+            <summary>
+            根据时间枚举转成中文,默认返回中文 (一，二，三....)
+            </summary>
+            <param name="eWeek">时间枚举</param>
+            <param name="prefixStr">时间字符串前缀如："星期"+"一"</param>
+            <returns></returns>
+        </member>
+        <member name="T:LG.Utility.DESCBCEncry">
+            <summary>
+            DES-CBC加解密
+            </summary>
+        </member>
+        <member name="M:LG.Utility.DESCBCEncry.#ctor(System.Text.Encoding)">
+            <summary>
+            初始化
+            </summary>
+            <param name="encode"></param>
+        </member>
+        <member name="M:LG.Utility.DESCBCEncry.GetKey(System.String)">
+            <summary>
+            取Key
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.DESCBCEncry.GetEncrypt(System.String,System.String)">
+            <summary>
+            加密
+            </summary>
+            <param name="toEncry"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.DESCBCEncry.GetDecrypt(System.String,System.String)">
+            <summary>
+            解密
+            </summary>
+            <param name="EncryptStr"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LG.Utility.EncryptDes">
+            <summary>
+            DES加解密
+            </summary>
+        </member>
+        <member name="M:LG.Utility.EncryptDes.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:LG.Utility.EncryptDes.ToEncrypt(System.String)">
+            <summary>
+            采用标准 64位 DES 算法 加密 
+            </summary>
+            <param name="strText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.EncryptDes.ReturnEncrypt(System.String)">
+            <summary>
+            采用标准64位3DES 算法 解密
+            </summary>
+            <param name="EnctyptStr"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LG.Utility.EnumHelper`1">
+            <summary>
+            枚举工具类
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:LG.Utility.EnumHelper`1.GetAllItem">
+            <summary>
+            获取所有枚举
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.EnumHelper`1.GetAllEnumItem">
+            <summary>
+            获取所有枚举和对应的属性
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.EnumHelper`1.AllItemToListItem">
+            <summary>
+            获取枚举的中文文本(Text)和枚举中文值(Value)映射的下拉菜单
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:LG.Utility.EnumHelper">
+            <summary>
+            枚举工具类
+            </summary>
+        </member>
+        <member name="M:LG.Utility.EnumHelper.AllItemToListItem(System.Enum)">
+            <summary>
+            [已废弃,请使用EnumHelper&lt;T&gt;.AllItemToListItem()]获取所有枚举和对应的属性
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.EnumHelper.GetCustomAttribute``1(System.Enum)">
+            <summary> 
+            获取枚举项的Attribute 
+            </summary> 
+            <typeparam name="T">自定义的Attribute</typeparam> 
+            <param name="source">枚举</param> 
+            <returns>返回枚举,否则返回null</returns> 
+        </member>
+        <member name="M:LG.Utility.EnumHelper.GetCustomAttribute(System.Enum,System.Type,System.Type)">
+            <summary> 
+            获取枚举项的Attribute 
+            </summary> 
+            <param name="source"></param> 
+            <param name="sourceType"></param> 
+            <param name="attributeType"></param> 
+            <returns>返回枚举,否则返回null</returns> 
+        </member>
+        <member name="M:LG.Utility.EnumHelper.GetEnumAttr(System.Enum)">
+            <summary> 
+            获取枚举项的EnumAttr
+            </summary> 
+            <param name="source">枚举</param> 
+            <returns>返回枚举,否则返回null</returns> 
+        </member>
+        <member name="M:LG.Utility.EnumHelper.GetEnumItem``1(System.Enum)">
+            <summary> 
+            获取枚举项的EnumItem
+            </summary> 
+            <param name="source">枚举</param> 
+            <returns>返回枚举,否则返回null</returns> 
+        </member>
+        <member name="M:LG.Utility.EnumHelper.ParseEnum``1(System.String)">
+            <summary>
+            根据名字解析为枚举,同时支持枚举值转为枚举
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="enumName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.EnumHelper.IsEnumEmpty(System.Object)">
+            <summary>
+            是否枚举为空
+            </summary>
+            <param name="enu"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.EnumHelper.GetEnum``1(System.Object)">
+            <summary>
+            强制转换为枚举类型,如果要用名字解析,请用ParseEnum
+            </summary>
+            <param name="enu"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LG.Utility.EnumAttr">
+            <summary>
+            枚举的属性
+            </summary>
+        </member>
+        <member name="P:LG.Utility.EnumAttr.Text">
+            <summary>
+            文本
+            </summary>
+        </member>
+        <member name="P:LG.Utility.EnumAttr.Desc">
+            <summary>
+            说明字符串(比Text长)
+            </summary>
+        </member>
+        <member name="T:LG.Utility.EnumItem`1">
+            <summary>
+            枚举项(包括枚举和对应的属性)
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:LG.Utility.EnumItem`1.Enum">
+            <summary>
+            枚举
+            </summary>
+        </member>
+        <member name="P:LG.Utility.EnumItem`1.Text">
+            <summary>
+            文本
+            </summary>
+        </member>
+        <member name="P:LG.Utility.EnumItem`1.Attr">
+            <summary>
+            枚举的EnumAttr属性对象
+            </summary>
+        </member>
+        <member name="P:LG.Utility.ExcelHelper.FileName">
+            <summary> 
+            输出到浏览器的 Excel 文件名 
+            </summary> 
+        </member>
+        <member name="M:LG.Utility.ExcelHelper.#ctor(System.String[],System.String[],System.Data.DataTable)">
+            <summary> 
+            构造函数 
+            </summary> 
+            <param name="titles">要输出到 Excel 的列标题的数组</param> 
+            <param name="fields">要输出到 Excel 的字段名称数组</param> 
+            <param name="dataSource">数据源</param> 
+        </member>
+        <member name="M:LG.Utility.ExcelHelper.#ctor(System.String[],System.Data.DataTable)">
+            <summary> 
+            构造函数 
+            </summary> 
+            <param name="titles">要输出到 Excel 的列标题的数组</param> 
+            <param name="dataSource">数据源</param> 
+        </member>
+        <member name="M:LG.Utility.ExcelHelper.#ctor(System.Data.DataTable)">
+            <summary> 
+            构造函数 
+            </summary> 
+            <param name="dataSource">数据源</param> 
+        </member>
+        <member name="M:LG.Utility.ExcelHelper.Export(System.Web.UI.WebControls.DataGrid)">
+            <summary> 
+            导出到 Excel 并提示下载 
+            </summary> 
+            <param name="dg">DataGrid</param> 
+        </member>
+        <member name="M:LG.Utility.ExcelHelper.Export">
+            <summary> 
+            导出到 Excel 并提示下载 
+            </summary> 
+        </member>
+        <member name="M:LG.Utility.ExcelHelper.GetRandomFileName">
+            <summary> 
+            得到一个随意的文件名 
+            </summary> 
+            <returns></returns> 
+        </member>
+        <member name="F:LG.Utility.ScaleHelper.RADIX">
+            <summary>
+            进位数
+            </summary>
+        </member>
+        <member name="F:LG.Utility.ScaleHelper.value">
+            <summary>
+            36进制数
+            </summary>
+        </member>
+        <member name="F:LG.Utility.ScaleHelper.value_long">
+            <summary>
+            对应10进制长整数
+            </summary>
+        </member>
+        <member name="M:LG.Utility.ScaleHelper.#ctor(System.String,System.Int32)">
+            <summary>
+            36进制数向10进制转换
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:LG.Utility.ScaleHelper.#ctor(System.Int64,System.Int32)">
+            <summary>
+            10进制向36进制转换
+            </summary>
+            <param name="value_long"></param>
+        </member>
+        <member name="M:LG.Utility.ScaleHelper.ToString">
+            <summary>
+            输出36进制
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.ScaleHelper.ToInt">
+            <summary>
+            输出10进制
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:LG.Utility.ScaleHelper.constant">
+            <summary>
+            随机种子定义
+            </summary>
+        </member>
+        <member name="M:LG.Utility.ScaleHelper.GenerateRandomNumber(System.Int32)">
+            <summary>
+            生成随机数
+            </summary>
+            <param name="length">要生成的随机数的位数</param>
+            <returns></returns>
+        </member>
+        <member name="T:LG.Utility.HttpAccessAsynCallBack">
+            <summary>
+            HTTP请求的回调
+            </summary>
+            <param name="response">流读取器,如果请求出错,本值为null</param>
+            <param name="responseCookies">返回新的cookie</param>
+            <param name="err">如果请求有错误的话,返回该错误,否则为null</param>
+            <param name="evData">自定义用的数据</param>
+        </member>
+        <member name="T:LG.Utility.HttpAccessHelper">
+            <summary>
+            HTTP访问工具类
+            </summary>
+        </member>
+        <member name="M:LG.Utility.HttpAccessHelper.GetRequestResult(System.String,System.Text.Encoding,System.Int32,System.String,System.Net.WebHeaderCollection)">
+            <summary>
+            获取请求结果
+            </summary>
+            <param name="url"></param>
+            <param name="encoding"></param>
+            <param name="timeOut"></param>
+            <param name="request"></param>
+            <param name="rMethod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.HttpAccessHelper.GetRequestResult(System.String,System.Net.CookieCollection@,System.Text.Encoding,System.Int32,System.String,System.Net.WebHeaderCollection)">
+            <summary>
+            获取请求结果
+            </summary>
+            <param name="url"></param>
+            <param name="encoding"></param>
+            <param name="requestCookies"></param>
+            <param name="timeOut"></param>
+            <param name="request"></param>
+            <param name="rMethod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.HttpAccessHelper.GetHttpGetResponse(System.String,System.Text.Encoding,System.Int32,System.Net.CookieCollection,System.Net.CookieCollection@,System.String,System.String,System.String)">
+            <summary>
+            Http模拟请求的基础实现方法,返回流读取器
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="dataEncoding">发送和读取数据的编码</param>
+            <param name="timeoutMillisecond">超时时间(单位:毫秒)</param>
+            <param name="requestCookies">提交的cookie集合</param>
+            <param name="responseCookies">得到的cookie集合</param>
+            <param name="headerAccept">请求头字段:Accept</param>
+            <param name="headerReferer">请求头字段:来源地址</param>
+            <param name="headerUserAgent">请求头字段:客户端</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:LG.Utility.HttpAccessHelper.GetHttpGetResponse(System.String,System.Text.Encoding,System.Int32,System.Net.CookieCollection,System.Net.CookieCollection@,System.Net.WebHeaderCollection)" -->
+        <member name="M:LG.Utility.HttpAccessHelper.GetHttpGetResponse(System.String,System.Text.Encoding,System.Int32,System.Net.CookieCollection,System.Net.CookieCollection@)">
+            <summary>
+            Http模拟请求的基础实现方法,返回流读取器
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="dataEncoding">发送和读取数据的编码</param>
+            <param name="timeoutMillisecond">超时时间(单位:毫秒)</param>
+            <param name="requestCookies">提交的cookie集合</param>
+            <param name="responseCookies">得到的cookie集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.HttpAccessHelper.GetHttpGetResponse(System.String,System.Text.Encoding,System.Int32)">
+            <summary>
+            Http模拟请求的基础实现方法,返回流读取器
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="dataEncoding">发送和读取数据的编码</param>
+            <param name="timeoutMillisecond">超时时间(单位:毫秒)</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.HttpAccessHelper.GetHttpGetResponseStream(System.String,System.Text.Encoding,System.Int32,System.Net.CookieCollection,System.Net.CookieCollection@,System.String,System.String,System.String)">
+            <summary>
+            Http模拟请求的基础实现方法,返回流读取器
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="dataEncoding">发送和读取数据的编码</param>
+            <param name="timeoutMillisecond">超时时间(单位:毫秒)</param>
+            <param name="requestCookies">提交的cookie集合</param>
+            <param name="responseCookies">得到的cookie集合</param>
+            <param name="headerAccept">请求头字段:Accept</param>
+            <param name="headerReferer">请求头字段:来源地址</param>
+            <param name="headerUserAgent">请求头字段:客户端</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.HttpAccessHelper.GetHttpGetResponseStream(System.String,System.Text.Encoding,System.Int32,System.Net.CookieCollection,System.Net.CookieCollection@,System.Net.WebHeaderCollection)">
+            <summary>
+            Http模拟请求的基础实现方法,返回流读取器
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="dataEncoding">发送和读取数据的编码</param>
+            <param name="timeoutMillisecond">超时时间(单位:毫秒)</param>
+            <param name="requestCookies">提交的cookie集合</param>
+            <param name="responseCookies">得到的cookie集合</param>
+            <param name="headers">请求头</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.HttpAccessHelper.GetHttpGetResponseStream(System.String,System.Text.Encoding,System.Int32,System.Net.CookieCollection,System.Net.CookieCollection@)">
+            <summary>
+            Http模拟请求的基础实现方法,返回流读取器
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="dataEncoding">发送和读取数据的编码</param>
+            <param name="timeoutMillisecond">超时时间(单位:毫秒)</param>
+            <param name="requestCookies">提交的cookie集合</param>
+            <param name="responseCookies">得到的cookie集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.HttpAccessHelper.GetHttpGetResponseStream(System.String,System.Text.Encoding,System.Int32)">
+            <summary>
+            Http模拟请求的基础实现方法,返回流读取器
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="dataEncoding">发送和读取数据的编码</param>
+            <param name="timeoutMillisecond">超时时间(单位:毫秒)</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.HttpAccessHelper.GetHttpGetResponseText(System.String,System.Text.Encoding,System.Int32,System.Net.CookieCollection,System.Net.CookieCollection@,System.String,System.String,System.String)">
+            <summary>
+            Http模拟请求
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="dataEncoding">发送和读取数据的编码</param>
+            <param name="timeoutMillisecond">超时时间(单位:毫秒)</param>
+            <param name="requestCookies">提交的cookie集合</param>
+            <param name="responseCookies">得到的cookie集合</param>
+            <param name="headerAccept">请求头字段:Accept</param>
+            <param name="headerReferer">请求头字段:来源地址</param>
+            <param name="headerUserAgent">请求头字段:客户端</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.HttpAccessHelper.GetHttpGetResponseText(System.String,System.Text.Encoding,System.Int32,System.Net.CookieCollection,System.Net.CookieCollection@,System.Net.WebHeaderCollection)">
+            <summary>
+            Http模拟请求
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="dataEncoding">发送和读取数据的编码</param>
+            <param name="timeoutMillisecond">超时时间(单位:毫秒)</param>
+            <param name="requestCookies">提交的cookie集合</param>
+            <param name="responseCookies">得到的cookie集合</param>
+            <param name="headers">请求头</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.HttpAccessHelper.GetHttpGetResponseText(System.String,System.Text.Encoding,System.Int32,System.Net.CookieCollection,System.Net.CookieCollection@)">
+            <summary>
+            Http模拟请求
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="dataEncoding">发送和读取数据的编码</param>
+            <param name="timeoutMillisecond">超时时间(单位:毫秒)</param>
+            <param name="requestCookies">提交的cookie集合</param>
+            <param name="responseCookies">得到的cookie集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.HttpAccessHelper.GetHttpGetResponseText(System.String,System.Text.Encoding,System.Int32)">
+            <summary>
+            Http模拟请求
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="dataEncoding">发送和读取数据的编码</param>
+            <param name="timeoutMillisecond">超时时间(单位:毫秒)</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.HttpAccessHelper.AsynGet(System.String,System.Text.Encoding,System.Int32,System.Net.CookieCollection,System.ComponentModel.ISynchronizeInvoke,LG.Utility.HttpAccessAsynCallBack,System.Object)">
+            <summary>
+            异步请求HTTP GET
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="dataEncoding">发送和读取数据的编码</param>
+            <param name="timeoutMillisecond">超时时间(单位:毫秒)</param>
+            <param name="requestCookies">提交的cookie集合</param>
+            <param name="invokeObject">回调函数的调用对象</param>
+            <param name="callBackHandle">回调</param>
+            <param name="evData">回调附加的传递参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.HttpAccessHelper.GetHttpPostRequest(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IDictionary{System.String,System.Byte[]},System.Collections.Generic.IDictionary{System.String,System.String},System.Boolean,System.Text.Encoding,System.Int32,System.Net.CookieCollection,System.String,System.String)">
+            <summary>
+            POST的基类,获取HttpWebRequest
+            </summary>
+        </member>
+        <member name="M:LG.Utility.HttpAccessHelper.GetHttpPostResponse(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IDictionary{System.String,System.Byte[]},System.Collections.Generic.IDictionary{System.String,System.String},System.Boolean,System.Text.Encoding,System.Int32)">
+            <summary>
+            Http模拟请求的基础实现方法,返回流读取器,需要外部关闭
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="data">普通表单项(非二进制)</param>
+            <param name="byteData">二进制数据(通常指附件)</param>
+            <param name="byteDataFileNames">二进制数据对应的文件名(通常指附件)</param>
+            <param name="isGZip">是否压缩数据(只针对二进制而言)</param>
+            <param name="dataEncoding">发送和读取数据的编码</param>
+            <param name="timeoutMillisecond">超时时间(单位:毫秒)</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.HttpAccessHelper.GetHttpPostResponse(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IDictionary{System.String,System.Byte[]},System.Collections.Generic.IDictionary{System.String,System.String},System.Boolean,System.Text.Encoding,System.Int32,System.Net.CookieCollection,System.Net.CookieCollection@)">
+            <summary>
+            Http模拟请求的基础实现方法,返回流读取器,带Cookies,需要外部关闭
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="data">普通表单项(非二进制)</param>
+            <param name="byteData">二进制数据(通常指附件)</param>
+            <param name="byteDataFileNames">二进制数据对应的文件名(通常指附件)</param>
+            <param name="isGZip">是否压缩数据(只针对二进制而言)</param>
+            <param name="dataEncoding">发送和读取数据的编码</param>
+            <param name="timeoutMillisecond">超时时间(单位:毫秒)</param>
+            <param name="requestCookies">提交的cookie集合</param>
+            <param name="responseCookies">得到的cookie集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.HttpAccessHelper.GetHttpPostResponseStream(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IDictionary{System.String,System.Byte[]},System.Collections.Generic.IDictionary{System.String,System.String},System.Boolean,System.Text.Encoding,System.Int32)">
+            <summary>
+            Http模拟请求的基础实现方法,返回流读取器,需要外部关闭
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="data">普通表单项(非二进制)</param>
+            <param name="byteData">二进制数据(通常指附件)</param>
+            <param name="byteDataFileNames">二进制数据对应的文件名(通常指附件)</param>
+            <param name="isGZip">是否压缩数据(只针对二进制而言)</param>
+            <param name="dataEncoding">发送和读取数据的编码</param>
+            <param name="timeoutMillisecond">超时时间(单位:毫秒)</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.HttpAccessHelper.GetHttpPostResponseStream(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IDictionary{System.String,System.Byte[]},System.Collections.Generic.IDictionary{System.String,System.String},System.Boolean,System.Text.Encoding,System.Int32,System.Net.CookieCollection,System.Net.CookieCollection@)">
+            <summary>
+            Http模拟请求的基础实现方法,返回流读取器,带Cookies,需要外部关闭
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="data">普通表单项(非二进制)</param>
+            <param name="byteData">二进制数据(通常指附件)</param>
+            <param name="byteDataFileNames">二进制数据对应的文件名(通常指附件)</param>
+            <param name="isGZip">是否压缩数据(只针对二进制而言)</param>
+            <param name="dataEncoding">发送和读取数据的编码</param>
+            <param name="timeoutMillisecond">超时时间(单位:毫秒)</param>
+            <param name="requestCookies">提交的cookie集合</param>
+            <param name="responseCookies">得到的cookie集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.HttpAccessHelper.GetHttpPostResponseText(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IDictionary{System.String,System.Byte[]},System.Collections.Generic.IDictionary{System.String,System.String},System.Boolean,System.Text.Encoding,System.Int32)">
+            <summary>
+            Http模拟请求的基础实现方法
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="data">普通表单项(非二进制)</param>
+            <param name="byteData">二进制数据(通常指附件)</param>
+            <param name="byteDataFileNames">二进制数据对应的文件名(通常指附件)</param>
+            <param name="isGZip">是否压缩数据(只针对二进制而言)</param>
+            <param name="dataEncoding">发送和读取数据的编码</param>
+            <param name="timeoutMillisecond">超时时间(单位:毫秒)</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.HttpAccessHelper.GetHttpPostResponseText(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IDictionary{System.String,System.Byte[]},System.Collections.Generic.IDictionary{System.String,System.String},System.Boolean,System.Text.Encoding,System.Int32,System.Net.CookieCollection,System.Net.CookieCollection@)">
+            <summary>
+            Http模拟请求的基础实现方法,带Cookies
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="data">普通表单项(非二进制)</param>
+            <param name="byteData">二进制数据(通常指附件)</param>
+            <param name="byteDataFileNames">二进制数据对应的文件名(通常指附件)</param>
+            <param name="isGZip">是否压缩数据(只针对二进制而言)</param>
+            <param name="dataEncoding">发送和读取数据的编码</param>
+            <param name="timeoutMillisecond">超时时间(单位:毫秒)</param>
+            <param name="requestCookies">提交的cookie集合</param>
+            <param name="responseCookies">得到的cookie集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.HttpAccessHelper.AsynPost(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IDictionary{System.String,System.Byte[]},System.Collections.Generic.IDictionary{System.String,System.String},System.Boolean,System.Text.Encoding,System.Int32,System.Net.CookieCollection,System.ComponentModel.ISynchronizeInvoke,LG.Utility.HttpAccessAsynCallBack,System.Object)">
+            <summary>
+            异步请求HTTP POST
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="data">普通表单项(非二进制)</param>
+            <param name="byteData">二进制数据(通常指附件)</param>
+            <param name="byteDataFileNames">二进制数据对应的文件名(通常指附件)</param>
+            <param name="isGZip">是否压缩数据(只针对二进制而言)</param>
+            <param name="dataEncoding">发送和读取数据的编码</param>
+            <param name="timeoutMillisecond">超时时间(单位:毫秒)</param>
+            <param name="requestCookies">提交的cookie集合</param>
+            <param name="invokeObject">回调函数的调用对象</param>
+            <param name="callBackHandle">回调</param>
+            <param name="evData">回调附加的传递参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.HttpAccessHelper.GZipStreamCompress(System.IO.Stream,System.Byte[],System.Boolean)">
+            <summary>
+            压缩二进制并写入到流中,确保该流是打开状态的,写完后该流还是打开状态
+            </summary>
+            <param name="writeStream">压缩后的数据,写入该流</param>
+            <param name="data">压缩二进制数据</param>
+            <param name="leaveOpen">压缩等级</param>
+        </member>
+        <member name="M:LG.Utility.HttpAccessHelper.GZipStreamCompress(System.IO.Stream,System.Byte[])">
+            <summary>
+            压缩二进制并写入到流中,确保该流是打开状态的,写完后该流还是打开状态
+            </summary>
+            <param name="writeStream">压缩后的数据,写入该流</param>
+            <param name="data"></param>
+        </member>
+        <member name="M:LG.Utility.HttpAccessHelper.GetCookiesByHeaderSetCookie(System.Net.HttpWebResponse)">
+            <summary>
+            从响应中获取响应的cookie
+            </summary>
+            <param name="response"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.HttpAccessHelper.SavePhotoFromUrl(System.String,System.String,System.String@)">
+            <summary>
+            从图片地址下载图片到本地磁盘
+            </summary>
+            <param name="ToLocalPath">图片本地磁盘地址</param>
+            <param name="url">图片网址</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.HttpAccessHelper.SaveBinaryFile(System.Net.WebResponse,System.String)">
+            <summary>
+            Save a binary file to disk.
+            </summary>
+            <param name="response">The response used to save the file</param>
+        </member>
+        <member name="M:LG.Utility.HttpAccessHelper.GetRequestPhoneClient">
+            <summary>
+            获取发起请求的手机客户端类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:LG.Utility.EMobilePhoneClient">
+            <summary>
+            移动手机客户端类型
+            <para>
+            EnumAttr Text=请求头中UserAgent 的信息，用来判断对应到客户端类型枚举
+            </para>
+            </summary>
+        </member>
+        <member name="T:LG.Utility.EFilterJson">
+            <summary>
+            过滤JSON 操作枚举
+            </summary>
+        </member>
+        <member name="F:LG.Utility.EFilterJson.Ignore">
+            <summary>
+            忽略
+            </summary>
+        </member>
+        <member name="F:LG.Utility.EFilterJson.Include">
+            <summary>
+            包含
+            </summary>
+        </member>
+        <member name="F:LG.Utility.EFilterJson.CloseOptOut">
+            <summary>
+            关闭OptOut功能
+            </summary>
+        </member>
+        <member name="T:LG.Utility.ImageHelper">
+            <summary>
+            图片处理
+            http://www.cnblogs.com/wu-jian/
+            
+            吴剑 2011-02-20 创建
+            吴剑 2012-08-08 修改
+            </summary>
+        </member>
+        <member name="M:LG.Utility.ImageHelper.CutForSquare(System.IO.Stream,System.String,System.Int32,System.Int32)">
+            <summary>
+            正方型裁剪
+            以图片中心为轴心，截取正方型，然后等比缩放
+            用于头像处理
+            </summary>
+            <remarks>吴剑 2012-08-08</remarks>
+            <param name="fromFile">原图Stream对象</param>
+            <param name="fileSaveUrl">缩略图存放地址</param>
+            <param name="side">指定的边长（正方型）</param>
+            <param name="quality">质量（范围0-100）</param>
+        </member>
+        <member name="M:LG.Utility.ImageHelper.CutForCustom(System.IO.Stream,System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            指定长宽裁剪
+            按模版比例最大范围的裁剪图片并缩放至模版尺寸
+            </summary>
+            <remarks>吴剑 2012-08-08</remarks>
+            <param name="fromFile">原图Stream对象</param>
+            <param name="fileSaveUrl">保存路径</param>
+            <param name="maxWidth">最大宽(单位:px)</param>
+            <param name="maxHeight">最大高(单位:px)</param>
+            <param name="quality">质量（范围0-100）</param>
+        </member>
+        <member name="M:LG.Utility.ImageHelper.ZoomAuto(System.IO.Stream,System.String,System.Double,System.Double,System.String,System.String)">
+            <summary>
+            图片等比缩放
+            </summary>
+            <remarks>吴剑 2012-08-08</remarks>
+            <param name="fromFile">原图Stream对象</param>
+            <param name="savePath">缩略图存放地址</param>
+            <param name="targetWidth">指定的最大宽度</param>
+            <param name="targetHeight">指定的最大高度</param>
+            <param name="watermarkText">水印文字(为""表示不使用水印)</param>
+            <param name="watermarkImage">水印图片路径(为""表示不使用水印)</param>
+        </member>
+        <member name="M:LG.Utility.ImageHelper.IsWebImage(System.String)">
+            <summary>
+            判断文件类型是否为WEB格式图片
+            (注：JPG,GIF,BMP,PNG)
+            </summary>
+            <param name="contentType">HttpPostedFile.ContentType</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:LG.Utility.HashGroupNodes" -->
+        <member name="T:LG.Utility.HashAlgorithm">
+            <summary>
+            HASH 散列算法
+            </summary>
+        </member>
+        <member name="M:LG.Utility.HashAlgorithm.computeMd5(System.String)">
+            Get the md5 of the given key.
+        </member>
+        <member name="M:LG.Utility.LinqHelper.GetIenumberable``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0}},System.Int32,System.Int32,System.Int32@,System.Int32)">
+            <summary>
+            分页
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataList">实现IEnumerable</param>
+            <param name="whereHandle">delegate检索条件</param>
+            <param name="orderHandle">delegate排序</param>
+            <param name="pageSize">每页显示数</param>
+            <param name="pageIndex">当前页码</param>
+            <param name="dataCout">返回总数量</param>
+            <param name="fpageSize">第一页数量,后面每页数量=pagesize</param>
+            
+            <returns></returns>
+        </member>
+        <member name="T:LG.Utility.NameValue`2">
+            <summary>
+            名值对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="N"></typeparam>
+        </member>
+        <member name="P:LG.Utility.NameValue`2.Key">
+            <summary>
+            名
+            </summary>
+        </member>
+        <member name="P:LG.Utility.NameValue`2.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="M:LG.Utility.ObjectExtend.GetInt(System.Object,System.Int32,System.Boolean)">
+            <summary>
+            从对象中转为int32数据
+            </summary>
+            <param name="obj">要转换的对象</param>
+            <param name="defaultValue">默认值</param>
+            <param name="isCatch">是抛出异常(true 抛出异常，false 异常后返回默认值)</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.ObjectExtend.GetLong(System.Object,System.Int64,System.Boolean)">
+            <summary>
+            从对象中转为long(int64)数据
+            </summary>
+            <param name="obj">要转换的对象</param>
+            <param name="defaultValue">默认值</param>
+            <param name="isCatch">是抛出异常(true 抛出异常，false 异常后返回默认值)</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.ObjectExtend.GetString(System.Object,System.String)">
+            <summary>
+            从对象转为string数据
+            </summary>
+            <param name="obj">要转换的对象</param>
+            <param name="defaultValue">默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.ObjectExtend.GetDateTime(System.Object,System.DateTime)">
+            <summary>
+            转为时间类型,并传入默认值,如果为空或者转化失败的话,将返回默认值
+            </summary>
+            <param name="obj"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.ObjectExtend.GetDateTime(System.Object)">
+            <summary>
+            转为时间类型,如果转化失败,将返回null
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.ObjectExtend.SerializeToString(System.Object)">
+            <summary>
+            序列化对象为字符串(和DeserializeObject对应),出错会抛出
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.ObjectExtend.GetJSON(System.Object)">
+            <summary>
+            根据对象,获取JSON序列化
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.ObjectExtend.JSONSerializeV3(System.Object,System.Nullable{LG.Utility.EFilterJson},System.Collections.Generic.List{System.String})">
+            <summary>
+            把对象JSON序列化 基于(Newtonsoft.Json)
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.ObjectExtend.JSONSerializeV3ValueHandle(System.Object,System.Nullable{Newtonsoft.Json.NullValueHandling},System.Nullable{LG.Utility.EFilterJson},System.Collections.Generic.List{System.String})">
+            <summary>
+            把对象JSON序列化 基于(Newtonsoft.Json)忽略null
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.ObjectExtend.GetJoinStr(System.Object[],System.String)">
+             <summary>
+            串联对象数组的各个元素，其中在每个元素之间使用指定的分隔符。
+             </summary>
+             <param name="objs">数组对象</param>
+             <param name="separator">要用作分隔符的字符串</param>
+             <returns></returns>
+        </member>
+        <member name="M:LG.Utility.PublicExtend.GetClientRealIp">
+            <summary>
+            尽最大努力取得用户IP (转移到StaticFunctions，其他地方在调用，这里多写个冗余方法，防止报错)
+            </summary>
+            <returns>用户IP</returns>
+        </member>
+        <member name="M:LG.Utility.PublicExtend.ToJoinStr``1(System.Collections.Generic.List{``0},System.String)">
+            <summary>
+            集合转为符号隔开的字符串
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="datas">集合</param>
+            <param name="separator">符号</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.PublicExtend.ToDbType(System.Type)">
+            <summary>
+            Type转DbType
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.Rand.Number(System.Int32)">
+            <summary>
+            生成随机数字
+            </summary>
+            <param name="Length">生成长度</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:LG.Utility.Rand.Str(System.Int32)" -->
+        <member name="M:LG.Utility.Rand.Str_char(System.Int32)">
+            <summary>
+            生成随机纯字母随机数
+            </summary>
+            <param name="Length">生成长度</param>
+            <param name="Sleep">是否要在生成前将当前线程阻止以避免重复</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.RandomHelper.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:LG.Utility.RandomHelper.GetRandomInt(System.Int32,System.Int32)">
+            <summary>
+            生成一个指定范围的随机整数，该随机数范围包括最小值，但不包括最大值
+            </summary>
+            <param name="minNum">最小值</param>
+            <param name="maxNum">最大值</param>
+        </member>
+        <member name="M:LG.Utility.RandomHelper.GetRandomDouble">
+            <summary>
+            生成一个0.0到1.0的随机小数
+            </summary>
+        </member>
+        <member name="M:LG.Utility.RandomHelper.GetRandomArray``1(``0[]@)">
+            <summary>
+            对一个数组进行随机排序
+            </summary>
+            <typeparam name="T">数组的类型</typeparam>
+            <param name="arr">需要随机排序的数组</param>
+        </member>
+        <member name="T:LG.Utility.RedisHelper">
+            <summary>
+            Redis 帮助类
+            </summary>
+        </member>
+        <member name="M:LG.Utility.RedisHelper.GetClient">
+            <summary>
+            获取链接redis对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.RedisHelper.Get``1(ServiceStack.Redis.IRedisClient,System.String)">
+            <summary>
+            获取Redis存储类型为string 的数据 
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.RedisHelper.Get``1(ServiceStack.Redis.IRedisClient,System.String,System.Func{``0},System.DateTime)">
+            <summary>
+            获取Redis存储类型为string 的数据 ,如果不存在就用函数返回的值,自动加入缓存.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="fun"></param>
+            <param name="expiresAt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.RedisHelper.Remove(ServiceStack.Redis.IRedisClient,System.String)">
+            <summary>
+            移除key对应的Redis缓存
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:LG.Utility.RedisHelper.GetHash(ServiceStack.Redis.IRedisClient,System.String,System.String)">
+            <summary>
+            获取hashvalue（值），根据key 和field(字段)
+            </summary>
+            <param name="key"></param>
+            <param name="field"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.RequestExtend.GetQ(System.Web.HttpRequest,System.String)">
+            <summary>
+            获取Request.QueryString的值
+            </summary>
+            <param name="request"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.RequestExtend.GetF(System.Web.HttpRequest,System.String)">
+            <summary>
+            获取Request.Form的值
+            </summary>
+            <param name="request"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.RequestExtend.GetQ(System.Web.HttpRequestBase,System.String)">
+            <summary>
+            获取Request.QueryString的值
+            </summary>
+            <param name="request"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.RequestExtend.GetF(System.Web.HttpRequestBase,System.String)">
+            <summary>
+            获取Request.Form的值
+            </summary>
+            <param name="request"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.RequestExtend.GetModel``1(System.Web.HttpRequestBase,System.Int32)">
+            <summary>
+            把form提交的数据集合，绑定到实体T类对应的属性值中
+            <para>selType=1 从GET请求数据集合中寻找</para>
+            <para>selType=2 从POST请求数据集合中寻找</para>
+            <para>selType=3 先从GET，如果没值，则继承从POST</para>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="request"></param>
+            <param name="selType"></param>
+            <returns></returns>
+        </member>
+        <member name="F:LG.Utility.RequestExtend.GetCallBackStr">
+            <summary>
+            根据Get请求是否有传callBack参数，返回跨域访问的callBack(..)格式字符串
+            </summary>
+        </member>
+        <member name="M:LG.Utility.RequestExtend.BuildPostData(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            构建post数据字符串
+            </summary>
+            <param name="parames"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LG.Utility.SiteLog">
+            <summary>
+            站点日志输出类
+            </summary>
+        </member>
+        <member name="M:LG.Utility.SiteLog.LogStr(System.String,System.String,System.Boolean)">
+            <summary>
+            输出日志字符串
+            </summary>
+            <param name="vlog"></param>
+            <param name="dirName"></param>
+            <param name="useIpDir"></param>
+        </member>
+        <member name="M:LG.Utility.SiteLog.LogStr(System.String,System.String,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            输出日志字符串
+            </summary>
+            <param name="vlog"></param>
+            <param name="dirName"></param>
+            <param name="useIpDir"></param>
+            <param name="useMonthDir"></param>
+            <param name="useHourFileName"></param>
+        </member>
+        <member name="M:LG.Utility.SiteLog.LogStr(System.String,System.String)">
+            <summary>
+            记录日志
+            </summary>
+            <param name="vlog">日志内容</param>
+            <param name="dirName">目录名称</param>
+        </member>
+        <member name="T:LG.Utility.Log">
+            <summary>
+            基础日志输出类
+            </summary>
+        </member>
+        <member name="M:LG.Utility.Log.#ctor(System.String)">
+            <summary>
+            用日志根目录初始化
+            </summary>
+            <param name="rootDir"></param>
+        </member>
+        <member name="M:LG.Utility.Log.LogStr(System.String,System.String,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            写日志字符串
+            </summary>
+            <param name="vlog"></param>
+            <param name="dirName"></param>
+            <param name="useIpDir"></param>
+            <param name="useMonthDir"></param>
+            <param name="useHourFileName"></param>
+        </member>
+        <member name="M:LG.Utility.SQLHelper.GetOrderStr(System.Collections.Generic.List{LG.Utility.OrderBy})">
+            <summary>
+            更具排序集合返回SQL
+            </summary>
+            <param name="orders"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.SQLHelper.GetOrderStrV2(System.Collections.Generic.List{LG.Utility.OrderBy})">
+            <summary>
+            更具排序集合返回SQL 包含ORDER BY
+            </summary>
+            <param name="orders"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.SQLHelper.GetWhere``1(``0,System.Collections.Generic.List{System.Data.SqlClient.SqlParameter}@,System.String,LG.Utility.EWhereRelation)">
+            <summary>
+            查询条件
+            </summary>
+            <typeparam name="T">查询条件类</typeparam>
+            <param name="obj">查询条件对象</param>
+            <param name="parames">返回SQL参数集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.SQLHelper.GetSqlParameters(System.Object)">
+            <summary>
+            获取对象属性作为SQL参数
+            </summary>
+            <param name="obj">对象</param>
+            <returns>参数集合</returns>
+        </member>
+        <member name="M:LG.Utility.SQLHelper.GetWhereSql(System.Object)">
+            <summary>
+            拼接Where条件
+            </summary>
+            <param name="obj">对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.SQLHelper.GetModelSQL(System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            获取数据行的SQL语句
+            </summary>
+            <param name="tableName"></param>
+            <param name="fields"></param>
+            <param name="whereSql"></param>
+            <param name="orders"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.SQLHelper.GetDeleteSQL(System.String,System.String)">
+            <summary>
+            获取删除的SQL语句
+            </summary>
+            <param name="tableName"></param>
+            <param name="fields"></param>
+            <param name="whereSql"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LG.Utility.OrderBy">
+            <summary>
+            排序的字段
+            </summary>
+        </member>
+        <member name="P:LG.Utility.OrderBy.Name">
+            <summary>
+            排序的字段名,如果多表,字段名中需要包含表名部分
+            </summary>
+        </member>
+        <member name="P:LG.Utility.OrderBy.TableAliasName">
+            <summary>
+            表（别）名(为空则不输出)
+            </summary>
+        </member>
+        <member name="P:LG.Utility.OrderBy.IsAsc">
+            <summary>
+            是否升序
+            </summary>
+        </member>
+        <member name="M:LG.Utility.OrderBy.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:LG.Utility.OrderBy.#ctor(System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="name">字段中文名</param>
+            <param name="isAsc"></param>
+        </member>
+        <member name="M:LG.Utility.OrderBy.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="tableAliasName">表（别）名</param>
+            <param name="name">字段中文名</param>
+            <param name="isAsc"></param>
+        </member>
+        <member name="M:LG.Utility.OrderBy.ToSql(System.Boolean)">
+            <summary>
+            输出sql语句段
+            </summary>
+            <param name="reIsAsc">是否相反当前的排序方式</param>
+            <returns></returns>
+        </member>
+        <member name="T:LG.Utility.OrderByExtend">
+            <summary>
+            排序的字段拓展
+            </summary>
+        </member>
+        <member name="M:LG.Utility.OrderByExtend.GetOrderStr(LG.Utility.OrderBy[])">
+            <summary>
+            根据排序对象集合获取排序SQL字符串
+            </summary>
+            <param name="orders"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.OrderByExtend.ToOrderBy(System.Enum,System.Boolean)">
+            <summary>
+            排序枚举快速获得排序对象
+            </summary>
+            <param name="enumObj"></param>
+            <param name="isAsc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.OrderByExtend.ToOrderBy(System.Enum,System.String,System.Boolean)">
+            <summary>
+            排序枚举快速获得排序对象
+            </summary>
+            <param name="enumObj"></param>
+            <param name="tableAliasName">表（别）名</param>
+            <param name="isAsc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.OrderByExtend.Union(LG.Utility.OrderBy,LG.Utility.OrderBy)">
+            <summary>
+            联合其他OrderBy对象,得到OrderBy数组
+            </summary>
+            <param name="orderBy"></param>
+            <param name="unionOrderBy"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.OrderByExtend.Union(LG.Utility.OrderBy[],LG.Utility.OrderBy)">
+            <summary>
+            联合其他OrderBy对象,得到OrderBy数组
+            </summary>
+            <param name="orderByArr"></param>
+            <param name="unionOrderBy"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.OrderByExtend.Union(LG.Utility.OrderBy[],LG.Utility.OrderBy[])">
+            <summary>
+            联合其他OrderBy对象数组,得到OrderBy数组
+            </summary>
+            <param name="orderByArr"></param>
+            <param name="unionOrderByArr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.OrderByExtend.Union(LG.Utility.OrderBy,LG.Utility.OrderBy[])">
+            <summary>
+            联合其他OrderBy对象数组,得到OrderBy数组
+            </summary>
+            <param name="orderByArr"></param>
+            <param name="unionOrderByArr"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LG.Utility.SQLPager">
+            <summary>
+            v2.0
+            </summary>
+        </member>
+        <member name="F:LG.Utility.SQLPager._tableName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:LG.Utility.SQLPager._aliasTName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:LG.Utility.SQLPager._primaryKey">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:LG.Utility.SQLPager._fromSqlApp">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:LG.Utility.SQLPager._whereSql">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:LG.Utility.SQLPager._orderBySql">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:LG.Utility.SQLPager._replaceRx">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:LG.Utility.SQLPager.#ctor(System.String,System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            初始化
+            </summary>
+            <param name="tableName">单纯的主表名</param>
+            <param name="aliasTName">如果有多表连接,那么该项就作为别名,无可为空</param>
+            <param name="primaryKey">主表主键名</param>
+            <param name="fromSqlApp">多表连接的语句段,将放在"from tableName 别名 "的后方,无可为空</param>
+            <param name="whereSql">条件语句,无需where关键字</param>
+            <param name="whereSql">tableName填写的是否是子查询，而不是表明</param>
+        </member>
+        <member name="M:LG.Utility.SQLPager.GetCountSQL">
+            <summary>
+            获得总页数的SQL语句
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.SQLPager.GetSumSQL(System.String)">
+            <summary>
+            获得数据总和的SQL语句
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.SQLPager.GetPagerSql(System.Int32,System.Int32,System.Int64,System.String,LG.Utility.OrderBy[])">
+            <summary>
+            获得分页的SQL语句(排序比较复杂的情况)
+            </summary>
+            <param name="pageSize">页大小</param>
+            <param name="pageIndex">第几页</param>
+            <param name="dataCount">总数</param>
+            <param name="selectColumns">要select的字段列表</param>
+            <param name="orderBySql">排序语句块,多表连接时,支持多表多字段排序</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.SQLPager.GetPagerSql(System.Int32,System.Int32,System.Int64,System.String,LG.Utility.OrderBy[],System.Boolean)">
+            <summary>
+            获得分页的SQL语句(排序比较复杂的情况)
+            </summary>
+            <param name="pageSize">页大小</param>
+            <param name="pageIndex">第几页</param>
+            <param name="dataCount">总数</param>
+            <param name="selectColumns">要select的字段列表</param>
+            <param name="orderBySql">排序语句块,多表连接时,支持多表多字段排序</param>
+            <param name="hasLastOrder">按这个排序分完页后的列表,是否还需要再按这个再次排序,一般是true,但是如果要把生成的语句再次作为一个子查询的sql,要为false</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.SQLPager.GetPagerSql(System.Int32,System.Int32,System.Int64,System.String,System.Boolean,LG.Utility.OrderBy[])">
+            <summary>
+            获得分页的SQL语句(排序比较复杂的情况)
+            </summary>
+            <param name="pageSize">页大小</param>
+            <param name="pageIndex">第几页</param>
+            <param name="dataCount">总数</param>
+            <param name="selectColumns">要select的字段列表</param>
+            <param name="hasLastOrder">按这个排序分完页后的列表,是否还需要再按这个再次排序,一般是true,但是如果要把生成的语句再次作为一个子查询的sql,要为false</param>
+            <param name="orderBySql">排序语句块,多表连接时,支持多表多字段排序</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.SQLPager.GetPagerSql(System.Int32,System.Int32,System.Int64,System.String,System.String,System.Boolean)">
+            <summary>
+            [否决的，“string orderBySql”已经被“OrderBy[] orderBySql”代替]获得分页的SQL语句
+            </summary>
+            <param name="pageSize">页大小</param>
+            <param name="pageIndex">第几页</param>
+            <param name="dataCount">总数</param>
+            <param name="selectColumns">要select的字段列表</param>
+            <param name="orderBySql">排序语句块,多表连接时,支持多表多字段排序</param>
+            <param name="hasLastOrder">按这个排序分完页后的列表,是否还需要再按这个再次排序,一般是true,但是如果要把生成的语句再次作为一个子查询的sql,要为false</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.SQLPager.GetPagerSql(System.Int32,System.Int32,System.Int64,System.String,System.String)">
+            <summary>
+            [否决的，“string orderBySql”已经被“OrderBy[] orderBySql”代替]获得分页的SQL语句
+            </summary>
+            <param name="pageSize">页大小</param>
+            <param name="pageIndex">第几页</param>
+            <param name="dataCount">总数</param>
+            <param name="selectColumns">要select的字段列表</param>
+            <param name="orderBySql">排序语句块,多表连接时,支持多表多字段排序</param>
+            <returns></returns>
+        </member>
+        <member name="T:LG.Utility.SqlParameterAttribute">
+            <summary>
+            SQL参数特性类
+            </summary>
+        </member>
+        <member name="P:LG.Utility.SqlParameterAttribute.EOperator">
+            <summary>
+            查询条件的操作符
+            </summary>
+        </member>
+        <member name="P:LG.Utility.SqlParameterAttribute.ERelation">
+            <summary>
+            查询条件之间的关系
+            </summary>
+        </member>
+        <member name="P:LG.Utility.SqlParameterAttribute.TableAlias">
+            <summary>
+            表别名(多表的时候使用别名区分查询字段是哪张表)
+            </summary>
+        </member>
+        <member name="P:LG.Utility.SqlParameterAttribute.FieldName">
+            <summary>
+            查询字段名(当一个字段需要多个查询条件的时候会使用到)
+            <para>默认等于属性名</para>
+            </summary>
+        </member>
+        <member name="P:LG.Utility.SqlParameterAttribute.GroupName">
+            <summary>
+            组名
+            </summary>
+        </member>
+        <member name="T:LG.Utility.EWhereOperator">
+            <summary>
+            查询条件操作符
+            </summary>
+        </member>
+        <member name="F:LG.Utility.EWhereOperator.Equal">
+            <summary>
+            等于 =
+            </summary>
+        </member>
+        <member name="F:LG.Utility.EWhereOperator.UnEqual">
+            <summary>
+            不等于 !=
+            </summary>
+        </member>
+        <member name="F:LG.Utility.EWhereOperator.MoreThan">
+            <summary>
+            大于 >
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:LG.Utility.EWhereOperator.LessThan" -->
+        <member name="F:LG.Utility.EWhereOperator.MoreThanOrEqual">
+            <summary>
+            大于等于 >=
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:LG.Utility.EWhereOperator.LessThanOrEqual" -->
+        <member name="F:LG.Utility.EWhereOperator.Like">
+            <summary>
+            模糊查询
+            </summary>
+        </member>
+        <member name="F:LG.Utility.EWhereOperator.IN">
+            <summary>
+            IN
+            </summary>
+        </member>
+        <member name="F:LG.Utility.EWhereOperator.NotIn">
+            <summary>
+            NOT IN
+            </summary>
+        </member>
+        <member name="T:LG.Utility.EWhereRelation">
+            <summary>
+            查询条件之间的关系
+            </summary>
+        </member>
+        <member name="F:LG.Utility.EWhereRelation.AND">
+            <summary>
+            AND
+            </summary>
+        </member>
+        <member name="F:LG.Utility.EWhereRelation.OR">
+            <summary>
+            OR
+            </summary>
+        </member>
+        <member name="T:LG.Utility.SQLSuperPager">
+            <summary>
+            超级SQL分页 v2.0
+            </summary>
+        </member>
+        <member name="M:LG.Utility.SQLSuperPager.#ctor(System.String,System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            初始化
+            </summary>
+            <param name="tableName">单纯的主表名</param>
+            <param name="aliasTName">如果有多表连接,那么该项就作为别名,无可为空</param>
+            <param name="primaryKey">主表主键名</param>
+            <param name="fromSqlApp">多表连接的语句段,将放在"from tableName 别名 "的后方,无可为空</param>
+            <param name="whereSql">条件语句,无需where关键字</param>
+        </member>
+        <member name="M:LG.Utility.StaticFunctions.CreateFile(System.String,System.Byte[])">
+            <summary>
+            根据字节流生成文件
+            </summary>
+            <param name="filePath">目标文件路径</param>
+            <param name="fileContent">文件内容</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StaticFunctions.OutPutFileInResponse(System.String,System.Byte[],System.Text.Encoding)">
+            <summary>
+            在当前流输出文件
+            </summary>
+            <param name="attachmentName">附件名称</param>
+            <param name="Content">内容</param>
+            <param name="encoding">编码</param>
+        </member>
+        <member name="M:LG.Utility.StaticFunctions.WriteStringToFile(System.String,System.String,System.Boolean,System.Text.Encoding)">
+            <summary>
+            将字符串写入文件
+            </summary>
+            <param name="filePath">目标文件路径</param>
+            <param name="content">文件内容</param>
+            <param name="append">是否追加</param>
+            <param name="charset">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StaticFunctions.WriteStringToFileDoNotThrowEx(System.String,System.String,System.Boolean,System.Text.Encoding)">
+            <summary>
+            将字符串写入文件，写失败时，不抛出异常
+            </summary>
+            <param name="filePath">目标文件路径</param>
+            <param name="content">文件内容</param>
+            <param name="append">是否追加</param>
+            <param name="charset">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StaticFunctions.GetFileByte(System.String)">
+            <summary>
+            获得文件二进制
+            </summary>
+            <param name="filePath">源文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StaticFunctions.GetFileString(System.String,System.Text.Encoding)">
+            <summary>
+            读取文件中的字符串
+            </summary>
+            <param name="filePath">源文件路径</param>
+            <param name="charset">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StaticFunctions.ClearServerCache">
+            <summary>
+            清空服务器缓存
+            </summary>
+        </member>
+        <member name="M:LG.Utility.StaticFunctions.RemoveServerCache(System.String)">
+            <summary>
+            移除一个缓存项目
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:LG.Utility.StaticFunctions.GetRandSeed">
+            <summary>
+            获取随机种子码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StaticFunctions.ByteToImg(System.Byte[])">
+            <summary>
+            字节转img
+            </summary>
+            <param name="byt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StaticFunctions.SaveFile(System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            根据URL保存图片
+            </summary>
+            <param name="imgUrl">图片URL地址</param>
+            <param name="savePath">保存路径</param>
+            <param name="saveFileName">保存图片名，不包括拓展名</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StaticFunctions.GetClientRealIp">
+            <summary>
+            尽最大努力取得用户IP（这个版本已经不再维护，请使用V2最新版本）
+            </summary>
+            <returns>用户IP</returns>
+        </member>
+        <member name="M:LG.Utility.StaticFunctions.GetClientRealIpV2">
+            <summary>
+            获取客户端IP地址
+            </summary>
+        </member>
+        <member name="M:LG.Utility.StaticFunctions.OutClientToDownFile(System.String,System.String)">
+            <summary>
+            输出客服端，下载文件
+            </summary>
+            <param name="filePath"></param>
+            <param name="saveFileName"></param>
+        </member>
+        <member name="M:LG.Utility.StaticFunctions.GetPosStatus(System.String,System.Int32)">
+            <summary>
+            获取位状态
+            </summary>
+            <param name="str"></param>
+            <param name="position">从1开始</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StaticFunctions.SetPosStatus(System.String,System.Int32,System.Boolean)">
+            <summary>
+            修改位状态
+            </summary>
+            <param name="str"></param>
+            <param name="position">从1开始</param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StaticFunctions.SetPosStatus(System.String@,System.Int32,System.Boolean)">
+            <summary>
+            修改位状态
+            </summary>
+            <param name="str"></param>
+            <param name="position">从1开始</param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StaticFunctions.InitPostStatus(System.Int32)">
+            <summary>
+            获取位状态字符串初始化
+            <para>0.... length=0的个数，默认=8</para>
+            </summary>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StaticFunctions.DoFnAgain(System.Func{System.Boolean},System.Int32)">
+            <summary>
+            多次执行方法
+            </summary>
+            <param name="doFn">委托方法</param>
+            <param name="failureTimes">失败后重复执行的次数</param>
+            <returns>返回最后执行的结果</returns>
+        </member>
+        <member name="M:LG.Utility.StaticFunctions.GetSignatureBySha1(System.Collections.Generic.List{System.String})">
+            <summary>
+            获取签名
+            </summary>
+            <param name="values">需要加密的值</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:LG.Utility.StaticFunctions.GetParames(System.Collections.Generic.Dictionary{System.String,System.Object})" -->
+        <member name="T:LG.Utility.StreamExtend">
+            <summary>
+            流拓展
+            </summary>
+        </member>
+        <member name="M:LG.Utility.StreamExtend.WriteStream(System.IO.Stream,System.IO.Stream)">
+            <summary>
+            把另一个流里的数据写到当前流的当前位置后,不会去打开/关闭当前流,也不会去打开/关闭另一个流
+            </summary>
+            <param name="stream"></param>
+            <param name="sourceStream"></param>
+        </member>
+        <member name="M:LG.Utility.StringExtend.To``1(System.String,``0)">
+            <summary>
+            string 类型转为其他值类型
+            </summary>
+            <typeparam name="T">值类型</typeparam>
+            <param name="str">字符串</param>
+            <param name="defaultVal">默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.IsNullOrEmpty(System.String)">
+            <summary>
+            System.String 对象是 null 还是 System.String.Empty 字符串。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.IsEmpty(System.String)">
+            <summary>
+            System.String 对象是 System.String.Empty 字符串。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.IsNotEmpty(System.String)">
+            <summary>
+            System.String 对象不是 System.String.Empty 字符串。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.TrimEx(System.String)">
+            <summary>
+            前后去空格,如果为null返回string.Empty
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.IsNullOrWhiteSpace(System.String)">
+            <summary>
+            指示指定的字符串是 null、空还是仅由空白字符组成。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.FormatStr(System.String,System.Object[])">
+            <summary>
+            复合格式字符串,{0},{2}...
+            </summary>
+            <param name="str"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.GetJsonCallBackStr(System.String)">
+            <summary>
+             根据Get请求是否有传callBack参数，返回跨域访问的callBack(..)格式字符串
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.GetUrlHost(System.String,System.Boolean)">
+            <summary>
+            获取URL字符串域名(支持获取一级域名或者完整域名)
+            </summary>
+            <param name="url"></param>
+            <param name="needFirstHost"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.RegexReplace(System.String,System.String,System.String)">
+            <summary>
+            正则替换
+            </summary>
+            <param name="str"></param>
+            <param name="pattern">要匹配的正则表达式模式。</param>
+            <param name="replacement">替换字符串。</param>
+            <returns></returns>.
+        </member>
+        <member name="M:LG.Utility.StringExtend.ToSplitList``1(System.String,System.Char)">
+            <summary>
+            返回的字符串数根据元素分隔的规则的集合
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="str"></param>
+            <param name="separator"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.HTMLClear(System.String,System.Boolean)">
+            <summary>
+            过滤HTML标签,并可选择是否将换行转换为\n
+            </summary>
+            <param name="htmlCode"></param>
+            <param name="toTextArea">是否将换行转换为\n</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.HTMLClearCanSaveCrlf(System.String,System.Boolean)">
+            <summary>
+            过滤HTML标签,并可选择是否保留换行标记
+            </summary>
+            <param name="htmlCode"></param>
+            <param name="saveCrlf">是否保留换行标记</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.DeserializeObject(System.String)">
+            <summary>
+            从字符串中序列化对象(和SerializeToString对应),出错会抛出
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.DecodeBase64(System.String)">
+            <summary>
+            从字符串中返序列化为字符串
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.JSONDeserialize``1(System.String)">
+            <summary>
+            根据JSON字符串反序列化为对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="jsonStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.JSONDeserializeV2``1(System.String)">
+            <summary>
+            根据JSON字符串反序列化为对象（把时间"/Date(1435891779000)/" 转为yyyy-MM-dd HH:mm:ss 格式，不然会反序列化回来会差8个小时）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="jsonStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.JSONDeserializeV3``1(System.String)">
+            <summary>
+            字符串反序列化成对象  基于(Newtonsoft.Json)
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="jsonStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.JSONDeserializeV3ValueHandle``1(System.String,System.Nullable{Newtonsoft.Json.NullValueHandling})">
+            <summary>
+            字符串反序列化成对象  基于(Newtonsoft.Json)允许传值时候处理null
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="jsonStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.GetPinyinCode(System.String)">
+            <summary>
+            生成拼音简码
+            </summary>
+            <returns>拼音简码:string</returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.MD5(System.String)">
+            <summary>
+            MD5加密
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.UrlDecode(System.String)">
+            <summary>
+            URL解码
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.UrlEncode(System.String)">
+            <summary>
+            URL编码
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.UrlEncode(System.String,System.Text.Encoding)">
+            <summary>
+            URL编码
+            </summary>
+            <param name="str"></param>
+            <param name="encoding">编码类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.HtmlEncode(System.String)">
+            <summary>
+            转换为HTML编码字符串
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.HtmlDecode(System.String)">
+             <summary>
+            HTML编码字符串转换为已解码字符串
+             </summary>
+             <param name="str"></param>
+             <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.GetSubSymbol(System.String,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            获取截取字符串 如：abcde => a**e  "abcde".GetSubSymbol(1, 4, 2, "*"); 
+            </summary>
+            <param name="str">源字符串</param>
+            <param name="sSubIndex">源字符串截取位置字符串（0-当前值），作为拼接字符串的头部(截取部分包括开始不包括结束)</param>
+            <param name="eSubIndex">源字符串截取位置字符串（当前值-总长度），作为拼接字符串的尾部(截取部分包括开始不包括结束)</param>
+            <param name="symbolNum">特殊符号的数量</param>
+            <param name="symbol">拼接的特殊符号</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.DesEncrypt(System.String)">
+            <summary>
+            DES加密
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.DesDecrypt(System.String)">
+            <summary>
+            DES解密
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.DESEncryptWithCBCZeros(System.String,System.String)">
+            <summary>   
+            DES加密方法，用UTF8编码
+            </summary>   
+            <param name="inp">待加密</param>   
+            <param name="key">key</param>   
+            <returns>加密完的数组</returns>   
+        </member>
+        <member name="M:LG.Utility.StringExtend.DESEncryptWithCBCZeros(System.String,System.String,System.Text.Encoding)">
+            <summary>   
+            DES加密方法   
+            </summary>   
+            <param name="inp">待加密</param>   
+            <param name="key">key</param>   
+            <param name="encode">编码</param>   
+            <returns>加密完的数组</returns>   
+        </member>
+        <member name="M:LG.Utility.StringExtend.DESDecryptWithCBCZeros(System.String,System.String)">
+            <summary>   
+            DES解密方法，用UTF8编码
+            </summary>   
+            <param name="inp">待加密</param>   
+            <param name="key">key</param>   
+            <returns>解密完的数组</returns>   
+        </member>
+        <member name="M:LG.Utility.StringExtend.DESDecryptWithCBCZeros(System.String,System.String,System.Text.Encoding)">
+            <summary>   
+            DES解密方法
+            </summary>   
+            <param name="inp">待加密</param>   
+            <param name="key">key</param>
+            <param name="encode">编码</param>    
+            <returns>解密完的数组</returns>   
+        </member>
+        <member name="M:LG.Utility.StringExtend.ToSBC(System.String)">
+            <summary>
+            转全角(SBC case)
+            </summary>
+            <param name="input">任意字符串</param>
+            <returns>全角字符串</returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.ToDBC(System.String)">
+            <summary>
+            转半角(DBC case)
+            </summary>
+            <param name="input">任意字符串</param>
+            <returns>半角字符串</returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.IsNumber(System.String)">
+            <summary>
+            判断吗是否是数字字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.IsPhoneNum(System.String)">
+            <summary>
+            是否是手机号
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.IsEmail(System.String)">
+            <summary>
+            是否是邮箱
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.StringExtend.IsIP(System.String)">
+            <summary>
+            检查IP地址格式
+            </summary>
+            <param name="ip"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LG.Utility.ModelExtend">
+            <summary>
+            实体类拓展
+            </summary>
+        </member>
+        <member name="M:LG.Utility.ModelExtend.GetModel``1(System.Data.DataTable,System.Int32)">
+            <summary>
+            根据DataTable 对象，绑定DataTable表默认首行数据值绑定到实体类属性值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.ModelExtend.GetModelByIDataReader``1(System.Data.IDataReader)">
+            <summary>
+            根据IDataReader 对象，绑定DataReader行数据值绑定到实体类属性值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.ModelExtend.GetModel``1(System.Data.IDataReader)">
+            <summary>
+            根据IDataReader 对象，绑定DataReader行数据值绑定到实体类属性值集合
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.ModelExtend.GetModels``1(System.Data.IDataReader)">
+            <summary>
+            根据IDataReader 对象，绑定DataReader行数据值绑定到实体类属性值集合
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.ModelExtend.GetModels``1(System.Data.DataTable)">
+            <summary>
+            更具DataTable 对象，绑定DataTable表所有行值绑定到实体类属性值集合
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.ModelExtend.GetModels``1(System.Data.DataSet)">
+            <summary>
+            更具DataTable 对象，绑定DataTable表所有行值绑定到实体类属性值集合
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LG.Utility.SuperEncrypt">
+            <summary>
+            超级混淆加密AES加密+随机6位秘钥+BASE64
+            <para>
+            密串=BASE64("【秘钥】前3位"+AES加密(MD5【随机6位+可选附加码】32位，向量)+"【秘钥】后3位").Replace("+", "_").Replace("/", "-").Replace("=", "*");
+            </para>
+            </summary>
+        </member>
+        <member name="P:LG.Utility.SuperEncrypt._KeyAppendCode">
+            <summary>
+            秘钥的附加码(默认秘钥是6随机数)
+            </summary>
+        </member>
+        <member name="P:LG.Utility.SuperEncrypt._AESVector">
+            <summary>
+            16位向量(AES加密的时候使用)
+            </summary>
+        </member>
+        <member name="M:LG.Utility.SuperEncrypt.#ctor(System.String,System.String)">
+            <summary>
+            AES加密向量
+            </summary>
+            <param name="AESVector">16位向量</param>
+            <param name="keyAppendCode">秘钥的附加码</param>
+        </member>
+        <member name="M:LG.Utility.SuperEncrypt.Encrypt(System.String,System.String@)">
+            <summary>
+            加密
+            </summary>
+            <param name="plaintext">明文</param>
+            <param name="secretKey">秘钥</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.SuperEncrypt.Decrypt(System.String)">
+            <summary>
+            解密
+            </summary>
+            <param name="str">密串</param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.SuperEncrypt.GetParse(System.String,System.String@)">
+            <summary>
+            获取密文
+            </summary>
+            <param name="str">解析串</param>
+            <param name="secretKey">秘钥</param>
+            <returns>密文</returns>
+        </member>
+        <member name="M:LG.Utility.SuperEncrypt.GetSecretKey(System.String)">
+            <summary>
+            获取秘钥
+            </summary>
+            <param name="str">解析串</param>
+            <returns>秘钥</returns>
+        </member>
+        <member name="T:LG.Utility.MyUpYun">
+            <summary>
+            又拍去上传帮助类
+            </summary>
+        </member>
+        <member name="M:LG.Utility.MyUpYun.UploadIamge(System.String,System.String)">
+            <summary>
+            上传图片到又拍云
+            </summary>
+            <param name="imageUri">上传的图片的本地位置</param>
+            <param name="location">位置（如：/a/b/c.jpg）</param>
+        </member>
+        <member name="M:LG.Utility.MyUpYun.UploadIamge(System.IO.Stream,System.String)">
+            <summary>
+            上传图片到又拍云
+            </summary>
+            <param name="inputStream">图片的输入流</param>
+            <param name="location">位置（如：/a/b/c.jpg）</param>
+        </member>
+        <member name="M:LG.Utility.MyUpYun.ReloadloadIamge(System.String,System.String@)">
+            <summary>
+            缓存刷新
+            </summary>
+            <param name="imageUrl">每个url都必须以为http开头，否则不会加入刷新队列</param>
+            <param name="location">位置（如：/a/b/c.jpg）</param>
+        </member>
+        <member name="M:LG.Utility.MyUpYun.ReloadloadIamgeV2(System.String,System.String@)">
+            <summary>
+            缓存刷新
+            </summary>
+            <param name="imageUrl">每个url都必须以为http开头，否则不会加入刷新队列</param>
+            <param name="location">位置（如：/a/b/c.jpg）</param>
+        </member>
+        <member name="M:LG.Utility.UpYun.#ctor(System.String,System.String,System.String)">
+            初始化 UpYun 存储接口
+            @param $bucketname 空间名称
+            @param $username 操作员名称
+            @param $password 密码
+            return UpYun object
+        </member>
+        <member name="M:LG.Utility.UpYun.setApiDomain(System.String)">
+            切换 API 接口的域名
+            @param $domain {默认 v0.api.upyun.com 自动识别, v1.api.upyun.com 电信, v2.api.upyun.com 联通, v3.api.upyun.com 移动}
+            return null;
+        </member>
+        <member name="M:LG.Utility.UpYun.setAuthType(System.Boolean)">
+            是否启用 又拍签名认证
+            @param upAuth {默认 false 不启用(直接使用basic auth)，true 启用又拍签名认证}
+            return null;
+        </member>
+        <member name="M:LG.Utility.UpYun.upyunAuthForReloadFile(System.Collections.Hashtable,System.String,System.Net.HttpWebRequest)">
+            <summary>
+            刷新缓存所用到的签名
+            </summary>
+            <param name="headers"></param>
+            <param name="url">所要刷新的文件的url</param>
+            <param name="request"></param>
+        </member>
+        <member name="M:LG.Utility.UpYun.reloadFileWorkerV2(System.String,System.String,System.Collections.Hashtable,System.String@)">
+            <summary>
+            用于刷新缓存
+            </summary>
+            <param name="method"></param>
+            <param name="Url">要刷新缓存的url（每个url都必须以为http开头，否则不会加入刷新队列）</param>
+            <param name="postData"></param>
+            <param name="headers"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.UpYun.reloadFileWorker(System.String,System.String,System.Collections.Hashtable,System.String@,System.Int32)">
+            <summary>
+            用于刷新缓存
+            </summary>
+            <param name="method"></param>
+            <param name="Url">要刷新缓存的url（每个url都必须以为http开头，否则不会加入刷新队列）</param>
+            <param name="postData"></param>
+            <param name="headers"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.UpYun.getFolderUsage(System.String)">
+            获取总体空间的占用信息
+            return 空间占用量，失败返回 null
+        </member>
+        <member name="M:LG.Utility.UpYun.getBucketUsage">
+            获取某个子目录的占用信息
+            @param $path 目标路径
+            return 空间占用量，失败返回 null
+        </member>
+        <member name="M:LG.Utility.UpYun.mkDir(System.String,System.Boolean)">
+            创建目录
+            @param $path 目录路径
+            return true or false
+        </member>
+        <member name="M:LG.Utility.UpYun.rmDir(System.String)">
+            删除目录
+            @param $path 目录路径
+            return true or false
+        </member>
+        <member name="M:LG.Utility.UpYun.readDir(System.String)">
+            读取目录列表
+            @param $path 目录路径
+            return array 数组 或 null
+        </member>
+        <member name="M:LG.Utility.UpYun.writeFile(System.String,System.Byte[],System.Boolean)">
+            上传文件
+            @param $file 文件路径（包含文件名）
+            @param $datas 文件内容 或 文件IO数据流
+            return true or false
+        </member>
+        <member name="M:LG.Utility.UpYun.deleteFile(System.String)">
+            删除文件
+            @param $file 文件路径（包含文件名）
+            return true or false
+        </member>
+        <member name="M:LG.Utility.UpYun.readFile(System.String)">
+            读取文件
+            @param $file 文件路径（包含文件名）
+            @param $output_file 可传递文件IO数据流（默认为 null，结果返回文件内容，如设置文件数据流，将返回 true or false）
+            return 文件内容 或 null
+        </member>
+        <member name="M:LG.Utility.UpYun.setContentMD5(System.String)">
+            设置待上传文件的 Content-MD5 值（如又拍云服务端收到的文件MD5值与用户设置的不一致，将回报 406 Not Acceptable 错误）
+            @param $str （文件 MD5 校验码）
+            return null;
+        </member>
+        <member name="M:LG.Utility.UpYun.setFileSecret(System.String)">
+            设置待上传文件的 访问密钥（注意：仅支持图片空！，设置密钥后，无法根据原文件URL直接访问，需带 URL 后面加上 （缩略图间隔标志符+密钥） 进行访问）
+            如缩略图间隔标志符为 ! ，密钥为 bac，上传文件路径为 /folder/test.jpg ，那么该图片的对外访问地址为： http://空间域名/folder/test.jpg!bac
+            @param $str （文件 MD5 校验码）
+            return null;
+        </member>
+        <member name="M:LG.Utility.UpYun.getFileInfo(System.String)">
+            获取文件信息
+            @param $file 文件路径（包含文件名）
+            return array('type'=> file | folder, 'size'=> file size, 'date'=> unix time) 或 null
+        </member>
+        <member name="T:LG.Utility.RequestHelper">
+            <summary>
+            Http请求帮助类
+            </summary>
+        </member>
+        <member name="M:LG.Utility.RequestHelper.SetLimitHeader(System.Net.HttpWebRequest@,System.String,System.String)">
+            <summary>
+            设置限制的请求头信息
+            </summary>
+            <param name="rs"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:LG.Utility.RequestHelper.SetHeader(System.Net.HttpWebRequest@,System.Net.WebHeaderCollection@)">
+            <summary>
+            设置请求头
+            </summary>
+            <param name="req"></param>
+            <param name="headers"></param>
+        </member>
+        <member name="M:LG.Utility.RequestHelper.Get(System.String,System.Text.Encoding,System.Net.CookieCollection@,System.Net.CookieCollection,System.Net.WebHeaderCollection,System.Int32)">
+            <summary>
+            GET 请求
+            </summary>
+            <param name="url">地址</param>
+            <param name="encoding">编码</param>
+            <param name="setCookies">响应的set cookies</param>
+            <param name="cookies">请求cookies</param>
+            <param name="headers">请求头信息</param>
+            <param name="timeout">请求过期时间(毫秒)</param>
+            <returns>响应内容</returns>
+        </member>
+        <member name="M:LG.Utility.RequestHelper.Get(System.String,System.Text.Encoding,System.Net.CookieCollection,System.Net.WebHeaderCollection,System.Int32)">
+            <summary>
+            GET 请求
+            </summary>
+            <param name="url">地址</param>
+            <param name="encoding">编码</param>
+            <param name="cookies">请求cookies</param>
+            <param name="headers">请求头信息</param>
+            <param name="timeout">请求过期时间(毫秒)</param>
+            <returns>响应内容</returns>
+        </member>
+        <member name="M:LG.Utility.RequestHelper.Get(System.String,System.Net.CookieCollection,System.Net.WebHeaderCollection,System.Int32)">
+            <summary>
+            GET 请求
+            </summary>
+            <param name="url">地址</param>
+            <param name="cookies">请求cookies</param>
+            <param name="headers">请求头信息</param>
+            <param name="timeout">请求过期时间(毫秒)</param>
+            <returns>响应内容</returns>
+        </member>
+        <member name="M:LG.Utility.RequestHelper.Post(System.String,System.String,System.Text.Encoding,System.Net.CookieCollection@,System.Net.CookieCollection,System.Net.WebHeaderCollection,System.Int32)">
+            <summary>
+            POST 请求
+            </summary>
+            <param name="url">地址</param>
+            <param name="postData">POST数据字符串</param>
+            <param name="encoding">编码</param>
+            <param name="setCookies">响应的set cookies</param>
+            <param name="cookies">需要设置的cookies</param>
+            <param name="headers">请求头信息</param>
+            <param name="timeout">请求过期时间(毫秒)</param>
+            <returns>响应内容</returns>
+        </member>
+        <member name="M:LG.Utility.RequestHelper.Post(System.String,System.String,System.Text.Encoding,System.Net.CookieCollection,System.Net.WebHeaderCollection,System.Int32)">
+            <summary>
+            POST 请求
+            </summary>
+            <param name="url">地址</param>
+            <param name="postData">POST数据字符串</param>
+            <param name="encoding">编码</param>
+            <param name="cookies">需要设置的cookies</param>
+            <param name="headers">请求头信息</param>
+            <param name="timeout">请求过期时间(毫秒)</param>
+            <returns>响应内容</returns>
+        </member>
+        <member name="M:LG.Utility.RequestHelper.Post(System.String,System.String,System.Net.CookieCollection,System.Net.WebHeaderCollection,System.Int32)">
+            <summary>
+            POST 请求
+            </summary>
+            <param name="url">地址</param>
+            <param name="postData">POST数据字符串</param>
+            <param name="cookies">需要设置的cookies</param>
+            <param name="headers">请求头信息</param>
+            <param name="timeout">请求过期时间(毫秒)</param>
+            <returns>响应内容</returns>
+        </member>
+        <member name="M:LG.Utility.RequestHelper.PostJson(System.String,System.String,System.Text.Encoding,System.Net.CookieCollection@,System.Net.CookieCollection,System.Net.WebHeaderCollection,System.Int32)">
+            <summary>
+            POST 请求
+            </summary>
+            <param name="url">地址</param>
+            <param name="postData">POST数据字符串</param>
+            <param name="encoding">编码</param>
+            <param name="setCookies">响应的set cookies</param>
+            <param name="cookies">需要设置的cookies</param>
+            <param name="headers">请求头信息</param>
+            <param name="timeout">请求过期时间(毫秒)</param>
+            <returns>响应内容</returns>
+        </member>
+        <member name="M:LG.Utility.RequestHelper.PostJson(System.String,System.String,System.Net.CookieCollection,System.Net.WebHeaderCollection,System.Int32)">
+            <summary>
+            POST 请求
+            </summary>
+            <param name="url">地址</param>
+            <param name="postData">POST数据字符串</param>
+            <param name="cookies">需要设置的cookies</param>
+            <param name="headers">请求头信息</param>
+            <param name="timeout">请求过期时间(毫秒)</param>
+            <returns>响应内容</returns>
+        </member>
+        <member name="M:LG.Utility.XMLExtend.GetValue(System.Xml.Linq.XElement,System.String)">
+            <summary>
+            更具xml节点获取节点中的值，如果为空时返回默认值
+            </summary>
+            <param name="ele"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.XMLExtend.GetValue(System.Xml.Linq.XAttribute,System.String)">
+            <summary>
+            更具xml节点属性获取属性中的值，如果为空时返回默认值
+            </summary>
+            <param name="ele"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LG.Utility.XMLExtend.XmlSerialize(System.Object,System.Text.Encoding)">
+            <summary>
+            将一个对象序列化为XML字符串（和XmlDeserialize对应）
+            </summary>
+            <param name="obj">要序列化的对象</param>
+            <param name="encoding">编码方式</param>
+            <returns>序列化产生的XML字符串</returns>
+        </member>
+        <member name="M:LG.Utility.XMLExtend.XmlSerializeToFile(System.Object,System.String,System.Text.Encoding)">
+            <summary>
+            将一个对象按XML序列化的方式写入到一个文件(和XmlDeserializeFromFile对应)
+            </summary>
+            <param name="obj">要序列化的对象</param>
+            <param name="path">保存文件路径（包含文件名）</param>
+            <param name="encoding">编码方式</param>
+        </member>
+        <member name="M:LG.Utility.XMLExtend.XmlDeserialize``1(System.String,System.Text.Encoding)">
+            <summary>
+            从XML字符串中反序列化对象
+            </summary>
+            <typeparam name="T">结果对象类型</typeparam>
+            <param name="xmlString">包含对象的XML字符串</param>
+            <param name="encoding">编码方式</param>
+            <returns>反序列化得到的对象</returns>
+        </member>
+        <member name="M:LG.Utility.XMLExtend.XmlDeserializeFromFile``1(System.String,System.Text.Encoding)">
+            <summary>
+            读入一个文件，并按XML的方式反序列化对象。
+            </summary>
+            <typeparam name="T">结果对象类型</typeparam>
+            <param name="filePath">文件路径</param>
+            <param name="encoding">编码方式</param>
+            <returns>反序列化得到的对象</returns>
+        </member>
+        <member name="T:LG.Utility.ZipHelper">
+            <summary>
+            Zip压缩与解压缩 
+            </summary>
+        </member>
+        <member name="M:LG.Utility.ZipHelper.ZipFile(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            压缩单个文件
+            </summary>
+            <param name="fileToZip">要压缩的文件</param>
+            <param name="zipedFile">压缩后的文件</param>
+            <param name="compressionLevel">压缩等级</param>
+            <param name="blockSize">每次写入大小</param>
+        </member>
+        <member name="M:LG.Utility.ZipHelper.ZipFile(System.String,System.String)">
+            <summary>
+            压缩单个文件
+            </summary>
+            <param name="fileToZip">要进行压缩的文件名</param>
+            <param name="zipedFile">压缩后生成的压缩文件名</param>
+        </member>
+        <member name="M:LG.Utility.ZipHelper.ZipFileDirectory(System.String,System.String)">
+            <summary>
+            压缩多层目录
+            </summary>
+            <param name="strDirectory">The directory.</param>
+            <param name="zipedFile">The ziped file.</param>
+        </member>
+        <member name="M:LG.Utility.ZipHelper.ZipSetp(System.String,ICSharpCode.SharpZipLib.Zip.ZipOutputStream,System.String)">
+            <summary>
+            递归遍历目录
+            </summary>
+            <param name="strDirectory">The directory.</param>
+            <param name="s">The ZipOutputStream Object.</param>
+            <param name="parentPath">The parent path.</param>
+        </member>
+        <member name="M:LG.Utility.ZipHelper.UnZip(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            解压缩一个 zip 文件。
+            </summary>
+            <param name="zipedFile">The ziped file.</param>
+            <param name="strDirectory">The STR directory.</param>
+            <param name="password">zip 文件的密码。</param>
+            <param name="overWrite">是否覆盖已存在的文件。</param>
+        </member>
+        <member name="M:LG.Utility.ZipHelper.CommpressDir(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            目录压缩
+            </summary>
+            <param name="compressedFilePath">压缩包文件输出路径</param>
+            <param name="dirPath">目录路径</param>
+            <param name="includeDir">是否包含传入的目录一起压缩,false则只压缩目录里的内容</param>
+            <param name="appendCompressed">是否追加压缩,需要压缩包文件已经存在</param>
+            <returns></returns>
+            <exception cref="T:System.Exception">要压缩的文件不存在</exception>
+            <exception cref="T:System.Exception">压缩异常</exception>
+        </member>
+        <member name="M:LG.Utility.ZipHelper.CommpressDirByFiles(System.String,System.String[],System.Boolean,System.Boolean)">
+            <summary>
+            目录压缩
+            </summary>
+            <param name="compressedFilePath">压缩包文件输出路径</param>
+            <param name="dirPath">目录路径</param>
+            <param name="includeDir">是否包含传入的目录一起压缩,false则只压缩目录里的内容</param>
+            <param name="appendCompressed">是否追加压缩,需要压缩包文件已经存在</param>
+            <returns></returns>
+            <exception cref="T:System.Exception">要压缩的文件不存在</exception>
+            <exception cref="T:System.Exception">压缩异常</exception>
+        </member>
+    </members>
+</doc>
