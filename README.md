@@ -1,11 +1,12 @@
-![graphql](https://blog.thankbabe.com/imgs/graphql.jpg?v=1)
+
+![graphql](https://blog.thankbabe.com/imgs/graphql.png?v=2)
 
 ### GraphQL是什么？
 GraphQL 既是一种用于API的查询语言也是一个满足你数据查询的运行时（来自：[官方解释](http://graphql.cn/learn/)）
 
-理解起来就是，GraphQL有自己查询语法，发起的API请求中通过传递查询语句来告诉服务端我需要哪些操作和具体数据字段，GraphQL定义了实现规范，各种的语言分别实现了GraphQL功能框架，通过框架可以对查询语法进行解释执行，然后返回数据输出给客户端
+理解起来就是，GraphQL有自己查询语法，发起的API请求中通过传递查询语句来告诉服务端需要哪些操作和具体数据字段，GraphQL定义了实现规范，各种的语言分别实现了GraphQL功能框架，通过框架可以对查询语法进行解释执行，然后返回数据输出给客户端
 
-![graphql](https://blog.thankbabe.com/imgs/graphql-server.jpg?v=1)
+![graphql](https://blog.thankbabe.com/imgs/graphql-server.png?v=2)
 
 
 
@@ -26,14 +27,13 @@ GraphQL 既是一种用于API的查询语言也是一个满足你数据查询的
 
 **语法特性满足各种需求**
 
-* 支持多操作：query查询，mutation修改 
-* 支持参数，比如：查询Id数据，分页功能
-* 语法其他特性，别名，片段，定义变量，指令 等
-    
->[GraphQL语法入门](http://graphql.cn/learn/)
+* 支持多操作：query->查询，mutation->修改，规范是写在查询语句前，默认不写就是query
+* 支持参数，实现各种功能，比如：查询数据，排序，分页，... ...等
+* 语法其他特性，别名，片段，定义变量，指令，... ...等
+
 
 ```
-# 查询语句-参数
+# 查询语句-有参数
 query{
   student(id:86){
     id
@@ -69,7 +69,7 @@ query{
 ```
 # 修改
 mutation {
-  update(id: 86, name: "33333") {
+  update(id: 86, name: "66666") {
     rt
     msg
   }
@@ -90,9 +90,9 @@ mutation {
 ```
 ---
 
-**查询和输出数据关联**
+**查询友好性，查询和输出关联**
 
-查询语法类JSON格式，前后端都可以很容易上手，查询语句和输出数据有紧密的关联性，通过分析查询语句就知道输出的数据内容字段有哪些
+看查询语句是不是感觉有点儿JSON的味道？查询语法类JSON格式，前后端都可以很容易上手，查询语句和输出数据有紧密的关联性，通过分析查询语句就知道输出的数据内容字段有哪些
 
 ---
 
@@ -198,9 +198,9 @@ http://api.xxx.com/student/v2/
 
 ---
  
-**自检性，查询输出所有定义**
+**自检性，可查询输出所有定义**
 
-GraphQL的一个很Nice的特性，就是GraphQL服务API可以通过语句查询出它所支持的类型，开发可以不需要花时间写API文档，GraphQL直接帮助开发者快速学习和探索API。
+这个是GraphQL一个很Nice的特性，就是GraphQL服务API可以通过语句查询出它所支持的类型，开发可以不需要花时间写API文档，GraphQL直接帮助开发者快速了解API。
 
 
 ```
@@ -272,9 +272,7 @@ GraphQL的一个很Nice的特性，就是GraphQL服务API可以通过语句查�
 
 ```
 
-> 基于自检GraphQL开源了辅助工具GraphiQL，方便GraphQL接口调试和自动生成接口文档    
-
-
+基于自检性，GraphQL开源了辅助工具GraphiQL，方便GraphQL接口调试和自动生成接口文档     
 * GraphQL辅助工具：GraphiQL，可以调试查询语句，并对接口定义的schema进行文档可视化展示
   * 查询语句进行感知
   * 错误提示
@@ -292,7 +290,7 @@ GraphQL的一个很Nice的特性，就是GraphQL服务API可以通过语句查�
 * 构建ASP.NET MVC5 WebAPI 项目
 * NutGet引入程序包
     * [GraphQL](https://github.com/graphql-dotnet/graphql-dotnet/) 
-    * [GenFu](https://github.com/MisterJames/GenFu) 初始化测试数据
+    * [GenFu](https://github.com/MisterJames/GenFu)，用于初始化测试数据
 * 基于GraphQL简单实现一个学生查询API
     * 支持查询学生信息列表
     * 支持查询学生的班级信息
@@ -528,9 +526,17 @@ ReactDOM.render(<GraphiQL fetcher={graphQLFetcher} />, document.getElementById('
 
 ### 总结
 
-* 对于应用我觉得可以使用到新项目需求的接口开发，或者现有合适应用场景基于GraphQL进行重构
+* 对于应用我觉得可以尝试使用到新项目需求中，或者现有合适应用场景进行重构，等服务运行稳定，并且开发上手后即可进行大范围的使用
 * 对于RestFul和GraphQL的比较，我觉得没有最好的协议，只有最合适的场景
 
 ---
-
-
+### 资源
+* Demo源码：
+  * Demo代码到我的Gtihub项目（[GraphQLDemo](https://github.com/SFLAQiu/GraphQLDemo)）
+* 学习资料
+  * [知乎-什么是GraphQL](https://www.zhihu.com/question/264629587)
+  * [GraphQL语法入门](http://graphql.cn/learn/)
+  * [GraphQL中文官网](http://graphql.cn)
+  * [How To GraphQL](http://howtographql.cn/)
+  * [GraphQL 搭配 Koa 最佳入门实践](https://juejin.im/post/5a49e5ccf265da430d585cfd)
+ 
